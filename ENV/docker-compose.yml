@@ -1,0 +1,17 @@
+services:
+  vpn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vpn
+
+    volumes:
+      - ../VPN:/ubuntoVPN
+
+    networks:
+      - use_network
+    restart: always
+  
+networks:
+  use_network:
+    driver: bridge
